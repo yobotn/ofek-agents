@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+	<!-- <link href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css" rel="stylesheet"> -->
+	<style type="text/css" >
+		body {
+			font-family: 'Rubik', sans-serif;
+		}
+
+		select {
+			width:100%;
+		}
+
+		/**
+		* multiple-select - Multiple select is a jQuery plugin to select multiple elements with checkboxes :).
+		*
+		* @version v1.5.2
+		* @homepage http://multiple-select.wenzhixin.net.cn
+		* @author wenzhixin <wenzhixin2010@gmail.com> (http://wenzhixin.net.cn/)
+		* @license MIT
+		*/
+
+		@charset "UTF-8";.ms-offscreen{clip:rect(0 0 0 0)!important;width:1px!important;height:1px!important;border:0!important;margin:0!important;padding:0!important;overflow:hidden!important;position:absolute!important;outline:0!important;right:auto!important;top:auto!important}.ms-parent{display:inline-block;position:relative;vertical-align:middle}.ms-choice{display:block;width:100%;height:26px;padding:0;overflow:hidden;cursor:pointer;border:1px solid #aaa;text-align:right;white-space:nowrap;line-height:26px;color:#444;text-decoration:none;border-radius:4px;background-color:#fff}.ms-choice.disabled{background-color:#f4f4f4;background-image:none;border:1px solid #ddd;cursor:default}.ms-choice>span{position:absolute;top:0;right:0;left:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;padding-right:8px}.ms-choice>span.placeholder{color:#999}.ms-choice>div.icon-close{position:absolute;top:0;left:16px;height:100%;width:16px}.ms-choice>div.icon-close:before{content:'×';color:#888;font-weight:bold;position:absolute;top:50%;margin-top:-14px}.ms-choice>div.icon-close:hover:before{color:#333}.ms-choice>div.icon-caret{position:absolute;width:0;height:0;top:50%;left:8px;margin-top:-2px;border-color:#888 transparent transparent transparent;border-style:solid;border-width:5px 4px 0 4px}.ms-choice>div.icon-caret.open{border-color:transparent transparent #888 transparent;border-width:0 4px 5px 4px}.ms-drop{width:auto;min-width:100%;overflow:hidden;display:none;margin-top:-1px;padding:0;position:absolute;z-index:1000;background:#fff;color:#000;border:1px solid #aaa;border-radius:4px}.ms-drop.bottom{top:100%;box-shadow:0 4px 5px rgba(0,0,0,0.15)}.ms-drop.top{bottom:100%;box-shadow:0 -4px 5px rgba(0,0,0,0.15)}.ms-search{display:inline-block;margin:0;min-height:26px;padding:2px;position:relative;white-space:nowrap;width:100%;z-index:10000;box-sizing:border-box}.ms-search input{width:100%;height:auto!important;min-height:24px;padding:0 5px;margin:0;outline:0;font-family:sans-serif;border:1px solid #aaa;border-radius:5px;box-shadow:none}.ms-drop ul{overflow:auto;margin:0;padding:0}.ms-drop ul>li{list-style:none;display:list-item;background-image:none;position:static;padding:.25rem 8px}.ms-drop ul>li .disabled{font-weight:normal!important;opacity:.35;filter:Alpha(Opacity=35);cursor:default}.ms-drop ul>li.multiple{display:block;float:right}.ms-drop ul>li.group{clear:both}.ms-drop ul>li.multiple label{width:100%;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ms-drop ul>li label{position:relative;padding-right:1.25rem;margin-bottom:0;font-weight:normal;display:block;white-space:nowrap;cursor:pointer}.ms-drop ul>li label.optgroup{font-weight:bold}.ms-drop ul>li.hide-radio{padding:0}.ms-drop ul>li.hide-radio:focus,.ms-drop ul>li.hide-radio:hover{background-color:#f8f9fa}.ms-drop ul>li.hide-radio.selected{color:#fff;background-color:#007bff}.ms-drop ul>li.hide-radio label{margin-bottom:0;padding:5px 8px}.ms-drop ul>li.hide-radio input{display:none}.ms-drop ul>li.option-level-1 label{padding-right:28px}.ms-drop input[type="radio"],.ms-drop input[type="checkbox"]{position:absolute;margin-top:.3rem;margin-right:-1.25rem}.ms-drop .ms-no-results{display:none}
+
+	</style>
+</head>
+
+<body class="bg-white bg-gradient">
+
+	<div class="container">
+
+	
+		<div class="row d-flex vh-100  align-items-center justify-content-center align-middle">
+		
+
+			<div class="col-12 col-md-6 ">
+
+				<div class="d-flex align-items-center justify-content-center ">
+					<img src="http://www.nonstopmedia.co.il/wp-content/uploads/2015/09/logo.png" style="width:300px;">	
+				</div>
+
+				<div class="card">
+					<div class="card-header text-center">
+						<span id="pricing"></span>
+						<span id="costTotal"></span>
+					</div>
+					<div class="card-body gap-2 pb-0">
+					
+							<form id="hazmana" class="needs-validation" novalidate>
+							
+
+								 <div class="form-group">
+									<label for="cityLocations">בחר מקומות מהרשימה</label>
+
+									<select id="cityLocations"  multiple="multiple" >
+										<!-- Here Options will be dumped -->
+									</select>
+								</div> 
+
+								<div class="form-group form-check py-2 pt-3">
+									<input class="form-check-input" type="checkbox"  id="extraDesignCost">
+									<label class="form-check-label" for="extraDesignCost">
+										עלות נוספת
+									</label>
+								</div>
+
+						
+
+								<div class="form-group pt-2">
+									<label for="businessName">שם עסק</label>
+									<input type="text" class="form-control" id="businessName" placeholder="שם עסק" required>
+								</div>
+
+								<div class="form-group pt-2">
+									<label for="customerName">שם לקוח</label>
+									<input type="text" class="form-control" id="customerName" placeholder="שם לקוח" required>
+								</div>
+
+
+								<div class="form-group pt-2">
+									<label for="customerEmail">מייל לקוח</label>
+									<input type="email" class="form-control " id="customerEmail" placeholder="מייל לקוח" style="direction: rtl;" required>
+								</div>
+
+								<div class="form-group pt-2">
+									<label for="customerPhone">נייד לקוח</label>
+									<input type="text" pattern="[0-9]{10}"  inputmode="numeric" class="form-control" id="customerPhone" placeholder="נייד לקוח" required>
+								</div>
+
+								<h5 class="p-0 m-0 pt-3">פרטי הסוכן</h5>
+
+								<div class="form-group">
+									<label for="agentName">שם סוכן</label>
+									<input type="text" class="form-control" id="agentName" placeholder="שם סוכן" required>
+								</div>
+
+								<div class="form-group">
+									<label for="agentCode">מספר סוכן</label>
+									<input type="text" pattern="\d*"  inputmode="numeric" class="form-control" id="agentCode" placeholder="מספר סוכן" required>
+								</div>
+
+						
+							</form>
+
+
+							<div class="d-grid gap-2 py-2 d-flex justify-content-center  ">
+
+								<button id="sendChoosenLocations" class="btn btn-primary btn-block disabled w-50" form="hazmana">שלח</button>
+							
+
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-info w-50" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								הוראות	
+								</button>
+
+
+							</div>
+
+				
+
+
+
+					</div>
+
+					<div class="card-footer text-muted text-center">
+							עלות ההזמנה: ₪0.00
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+
+
+
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">הוראות</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">סגור</button>
+			</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+
+	/**
+	* GENERAL 
+	*/
+	const urlParams = new URLSearchParams(window.location.search);
+	const API = 'https://script.google.com/macros/s/AKfycbyoBMi01sq4X8DlTdIIQ8apkkkLtFp0oTNkLZf5el1q25sZxBAtlir_rr_bE1uhnani/exec'
+	let DATA_SOURCE = null
+	const cityLocationsSelectElement = document.querySelector('#cityLocations')
+
+
+	/**
+	* LOAD EXTRA DESIGN COST AND ADD EVENT LISTENER
+	*/
+
+	var extraDesignCost = -1
+	const checkbox = document.querySelector('#extraDesignCost')
+	
+	fetch(`${API}?price=true`)
+	.then(data=>data.json())
+	.then(data=> {
+
+		extraDesignCost = parseFloat(data.price) || 0
+		
+		let extraDesignCostElement = document.querySelector('[for="extraDesignCost"]')
+		extraDesignCostElement.textContent = `עלות נוספת לעיצוב: ₪${parseFloat(extraDesignCost).toFixed(2)}`
+
+		
+		
+		checkbox.addEventListener('change', (e)=>{
+			/* const calcExtraCost = calc() || 0
+			*/
+			calc()
+			
+			/* extraDesignCost.textContent = `עלות נוספת לעיצוב: ₪${parseFloat(extraDesignCost).toFixed(2)}` */
+		})
+	})
+
+
+
+
+	/**
+	* LOAD AGENT DATA FROM QUERY STRING 
+	*/	
+	const agentName = urlParams.get('agentName');
+	const agentCode = urlParams.get('agentCode');
+	document.querySelector('#agentName').value = agentName || ''
+	document.querySelector('#agentCode').value = agentCode || ''
+
+	/**
+	* FUNCTION TO GROUP  CITIES
+	*/
+	const groupBy = (arr, key) => {
+		const initialValue = {};
+		return arr.reduce((acc, cval) => {
+			const myAttribute = cval[key];
+			acc[myAttribute] = [...(acc[myAttribute] || []), cval]
+			return acc;
+		}, initialValue);
+	};
+
+	/**
+	* ASYNC FUNCTION TO LOAD DATA FROM SHEETS 
+	*/
+	(async () => {
+
+		const req = await fetch(API);
+		const data = await req.json()
+	
+
+		DATA_SOURCE = data.map((vs,i) => ({...vs, Id:++i}))
+
+		console.log(DATA_SOURCE)
+
+		const grouped = groupBy(DATA_SOURCE,'עיר')
+	
+
+		Object.values(grouped).forEach(city =>{
+
+			/* console.log(city) */
+			const locations = Object.values(city)
+
+			/* console.log(locations) */
+
+			const options = locations.map(d=>{
+				return `<option value="${d.Id}">${d['כתובת']}</option>`
+			})
+
+			cityLocationsSelectElement.innerHTML += `
+				<optgroup label="${city[0]['עיר']} (${locations.length}) ">
+					${options.join()}
+				</optgroup>
+			`
+		})
+
+		
+	})().then(d=>{
+
+		document.querySelector('#sendChoosenLocations').classList.remove('disabled')
+
+		document.querySelector('#pricing').innerHTML = `טופס הזמנה - מחירון: ₪${parseFloat(DATA_SOURCE[0]['מחיר']).toFixed(2)}`
+		/**
+		* INIT MULTIPLE SELECT
+		*/
+		$('select').multipleSelect({
+
+			multiple: true,
+			
+			multipleWidth: "100%",
+
+			filter: true,
+
+			formatSelectAll () {
+				return '[בחר הכל]'
+			},
+
+			formatAllSelected () {
+				return 'הכל מסומן'
+			},
+
+			formatCountSelected (count, total) {
+				return 'בחרת\ה ' + count + ' מ ' + total + ' כתובות'
+			},
+
+			formatNoMatchesFound () {
+				return 'לא נמצא'
+			},
+
+
+			onClick: function (view) {
+				calc()
+			},	
+
+			onOptgroupClick: function(e) {
+				calc()
+			},
+
+			onCheckAll: function(e) {
+				calc()
+			}
+		
+		})
+
+
+	
+	})
+
+
+	/**
+	* GET SELECTED LOCATIONS
+	*/
+	function getSelectedLocations(){
+		const selected = $('#cityLocations').multipleSelect('getSelects')
+		let selectedData = [];
+
+		selected?.forEach(locationId=>{
+			let data = DATA_SOURCE.filter(d=>d.Id==locationId)
+			selectedData.push(data)
+		})
+
+		return selectedData
+	}
+
+	/**
+	* CALC ORDER  
+	*/
+	function calc() {
+
+		let ttl = 0
+
+		if (checkbox.checked == true) {
+			ttl = extraDesignCost
+		} 
+
+		selectedData = getSelectedLocations()
+		if (selectedData.length) {
+
+			let cost = selectedData.map(item => parseFloat(item[0]['מחיר'] )).reduce((prev, next) => prev + next);
+
+
+			ttl += cost
+
+			
+		} 
+
+
+		const htmlElement = document.querySelector('.card-footer')
+		htmlElement.textContent = `עלות ההזמנה: ₪${ttl.toFixed(2)}`
+
+		return ttl
+	}
+
+
+	/**
+	* FORM SUBMIT
+	*/
+
+	
+	const form = document.querySelector('#hazmana')
+	document.querySelector('.btn-block').addEventListener('click',(e)=>{
+
+		const btn = document.querySelector('#sendChoosenLocations')
+
+		btn.classList.add('disabled')
+		
+		e.preventDefault()
+
+		/* console.log(getSelectedLocations().length) */
+
+		if (!getSelectedLocations().length){
+			btn.classList.remove('disabled')
+			return alert('בחר מקומות')
+			
+		}
+
+		if (!form.checkValidity()) {
+			btn.classList.remove('disabled')
+			return form.classList.add('was-validated')
+		} 
+
+
+		var dict = {};
+
+		Array.from(document.querySelector('form').elements).forEach(e => {
+			if (!e.id || e.id == 'sendChoosenLocations' || e.id == 'cityLocations') return;
+
+			dict[e.id]  = e.value
+			// localStorage.setItem([e.id], e.value)
+		})
+
+		dict['locations'] = getSelectedLocations()
+
+		
+		dict['extraDesignCost'] = checkbox.checked == true ? extraDesignCost : 0;
+		
+
+		console.log(dict)
+
+		
+
+		/* const webhook = 'https://hook.integromat.com/3elwh4gig2crr28w8d27mdhwcufpr5mu'
+		fetch(webhook,{
+			method:'post',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(dict)
+		})
+		.then(data=>data.text())
+		.then(data=>{
+
+			if (data == 'Accepted'){
+				alert('וובהוק התקבל')
+				location.reload()
+			} else {
+				alert('שגיאה')
+			}
+		})
+		.catch(error => console.log(error) );
+ */
+
+
+	})
+	
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</body>
+</html>
